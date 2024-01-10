@@ -4,8 +4,8 @@ import os
 os.environ["HF_API_KEY"] = "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"  # Replace with your actual API key
 
 app = flask.Flask(__name__)
-# generator = pipeline("text-generation", model="EleutherAI/gpt-neo-125M")  # Using a different model
-generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")  # Using a different model
+generator = pipeline("text-generation", model="EleutherAI/gpt-neo-125M")  # Using a different model
+# generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")  # Using a different model
 
 @app.route("/")
 def home():
@@ -25,4 +25,5 @@ def generate_text():
         return flask.jsonify({"error": "Prompt is required"}), 400
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5050)  # Set debug=False for production
+    print("started")
+    app.run(debug=False)  # Set debug=False for production
